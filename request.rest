@@ -1,22 +1,25 @@
+### Get Server Status
 GET http://localhost:3000/
 
-###
+### Create a New Post
 POST http://localhost:3000/post
 Content-Type: application/json
 
 {
     "message": "This is my first post!",
-    "sender": "test123"
+    "sender": "Rony123"
 }
-###
+
+### Get All Posts
 GET http://localhost:3000/post
-###
+
+### Get Posts by Sender
 GET http://localhost:3000/post?sender=Rony123
 
-### קבלת פוסט לפי מזהה (תעתיקי לכאן את ה-ID שקיבלת בפוסט הקודם)
+### Get Post by ID
 GET http://localhost:3000/post/697e2973b7f35f90354f032e
 
-### עדכון פוסט
+### Update Post
 PUT http://localhost:3000/post/697e2973b7f35f90354f032e
 Content-Type: application/json
 
@@ -25,7 +28,9 @@ Content-Type: application/json
     "sender": "Rony123"
 }
 
-### 2. יצירת תגובה (חובה להעתיק את ה-ID של הפוסט שיצרת למעלה לשדה postId כאן!)
+### --- Comments API ---
+
+### Create a New Comment
 POST http://localhost:3000/comments
 Content-Type: application/json
 
@@ -35,8 +40,8 @@ Content-Type: application/json
     "postId": "697e33349f492d3ab797a433"
 }
 
-### 3. קבלת כל התגובות
+### Get All Comments
 GET http://localhost:3000/comments
 
-### 4. קבלת תגובות של פוסט ספציפי (החלפת ה-ID ב-ID האמיתי)
+### Get Comments by Post ID
 GET http://localhost:3000/comments?postId=697e33349f492d3ab797a433
