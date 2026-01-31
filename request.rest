@@ -12,3 +12,31 @@ Content-Type: application/json
 GET http://localhost:3000/post
 ###
 GET http://localhost:3000/post?sender=Rony123
+
+### קבלת פוסט לפי מזהה (תעתיקי לכאן את ה-ID שקיבלת בפוסט הקודם)
+GET http://localhost:3000/post/697e2973b7f35f90354f032e
+
+### עדכון פוסט
+PUT http://localhost:3000/post/697e2973b7f35f90354f032e
+Content-Type: application/json
+
+{
+    "message": "This is the updated message!",
+    "sender": "Rony123"
+}
+
+### 2. יצירת תגובה (חובה להעתיק את ה-ID של הפוסט שיצרת למעלה לשדה postId כאן!)
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+    "message": "Great post!",
+    "sender": "PartnerUser",
+    "postId": "697e33349f492d3ab797a433"
+}
+
+### 3. קבלת כל התגובות
+GET http://localhost:3000/comments
+
+### 4. קבלת תגובות של פוסט ספציפי (החלפת ה-ID ב-ID האמיתי)
+GET http://localhost:3000/comments?postId=697e33349f492d3ab797a433
